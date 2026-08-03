@@ -1,4 +1,4 @@
-#New Song
+#New Beggining
 
 use_bpm 140
 
@@ -99,7 +99,7 @@ live_loop :bass do
   sleep 1
 end
 
-loop do
+10.times do
   play :d
   sleep 0.5
   play :g
@@ -109,10 +109,7 @@ loop do
   play :g
   sleep 0.5
   
-end
-
-in_thread do
-  loop do
+  in_thread do
     play :c
     sleep 0.5
     play :c
@@ -124,6 +121,110 @@ in_thread do
   end
 end
 
+
 live_loop :variation do
+  use_synth :pluck
   
+  if one_in(2.5)
+    notes = [:d5, :g5].choose
+    play notes, amp: rrand(1.5, 2.5), release: rrand(0.1, 0.25), pan: rrand(-1, 1)
+  end
+  
+  sleep 0.5
 end
+
+5.times do
+  use_synth :sine
+  sync :drums
+  with_fx :reverb, room: 0.8, mix: 0.6 do
+    with_fx :echo, phase: 0.25, decay: 2, mix: 0.3 do
+      play :g5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :a5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :b5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :d6, release: 0.4, amp: 1
+      sleep 1.75
+      
+      play :d5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :fs5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :a5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :fs6, release: 0.2, amp: 1
+      sleep 1.75
+      
+      play :c5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :e5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :g5, release: 0.2, amp: 0.5
+      sleep 0.25
+      play :e6, release: 0.2, amp: 1
+      sleep 1.75
+      in_thread do
+        5.times do
+          play :d
+          sleep 0.5
+          play :g
+          sleep 0.5
+          play :g
+          sleep 0.5
+          play :g
+          sleep 0.5
+          play :c
+          sleep 0.5
+          play :c
+          sleep 0.5
+          play :c
+          sleep 0.5
+          play :b
+          sleep 0.5
+        end
+      end
+    end
+  end
+end
+
+live_loop :chorus do
+  use_synth :pluck
+  
+  play chord(:c, :add9), release: 2, amp: 4
+  sleep 1
+  play chord(:c, :add9), release: 2, amp: 4
+  sleep 1
+  play chord(:c, :add9), release: 2, amp: 4
+  sleep 1
+  
+  play chord(:d, :sus4), release: 2, amp: 4
+  sleep 1
+  play chord(:d, :sus4), release: 2, amp: 4
+  sleep 1
+  play chord(:d, :sus4), release: 2, amp: 4
+  sleep 1
+  
+  play chord(:g, :maj), release: 2, amp: 4
+  sleep 1
+  play chord(:g, :maj), release: 2, amp: 4
+  sleep 1
+  play chord(:g, :maj), release: 2, amp: 4
+  sleep 1
+  
+  play chord(:e, :minor), release: 2, amp: 4
+  sleep 1
+  play chord(:e, :minor), release: 2, amp: 4
+  sleep 1
+  play chord(:e, :minor), release: 2, amp: 4
+  sleep 1
+end
+
+
+
+
+
+
+
+
+

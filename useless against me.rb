@@ -1,6 +1,4 @@
-#New Song
-
-#Trying for a sad song but lets see how it works out.
+#Useless Against Me
 
 use_bpm 85
 
@@ -167,3 +165,28 @@ live_loop :track2 do
     sleep 0.5
   end
 end
+
+
+live_loop :elec_guitar do
+  with_fx :distortion, distort: 0.85, amp: 0.7 do
+    use_synth :pluck
+    play :fs3, amp: 0.7, sustain: 1, release: 0.2
+    sleep 0.5
+    play :g3, amp: 0.7, sustain: 1, release: 0.2
+    sleep 0.5
+    play :fs3, amp: 0.7, sustain: 1, release: 0.2
+    sleep 0.5
+    play :g3, amp: 0.7, sustain: 1, release: 0.2
+    sleep 0.5
+    play :fs3, amp: 0.7, sustain: 2, release: 0.4
+    sleep 0.5
+    play :fs3, amp: 0.7, sustain: 2, release: 0.4
+    sleep 0.5
+    play :e3, amp: 0.7, sustain: 2, release: 0.4
+    sleep 2
+  end
+end
+
+
+
+
